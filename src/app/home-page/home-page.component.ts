@@ -25,12 +25,14 @@ export class HomePageComponent implements OnInit {
   }
 
   onListClick() {
+    this.commonService.showCarosual = false;
     this.showGrid = false;
     this.titleChange = 'Featured';
     this.showList = true;
   }
 
   onGridClick() {
+    this.commonService.showCarosual = false;
     this.showList = false;
     this.titleChange = 'Selected: All';
     this.showGrid = true;
