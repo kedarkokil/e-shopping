@@ -1,0 +1,148 @@
+<ng-container *ngIf="commonService.showCarosual">
+    <amexio-carousel [data]="[2,3,4,5,6,7,8]" shuffle-interval="2000">
+        <ng-template let-gallery amexioTemplate="item">
+            <amexio-image [height]="'300px'" path="assets/carosual/{{gallery}}.jpg">
+            </amexio-image>
+        </ng-template>
+    </amexio-carousel>
+</ng-container>
+
+
+<amexio-row>
+    <amexio-column size="6" fit="false" style="margin-top: 30px;">
+        <amexio-label size="medium-bold">
+            {{titleChange}}
+        </amexio-label>
+
+
+    </amexio-column>
+    <amexio-column size="6" fit="false" style="margin-top: 30px;">
+        <amexio-btn-group style="float: right;">
+            <amexio-button [size]="'small'" [icon]="'fa fa-list'" (onClick)="onListClick()">
+            </amexio-button>
+            <amexio-button [size]="'small'" [icon]="'fa fa-th'" (onClick)="onGridClick()">
+            </amexio-button>
+        </amexio-btn-group>
+    </amexio-column>
+
+</amexio-row>
+
+
+<ng-container *ngIf="showGrid">
+    <amexio-row>
+
+        <amexio-column size="3" fit="false" *ngFor="let item of ProductsList" style="padding: 20px">
+            <amexio-card-ce amexioThemeStyle [theme-style]="'round-edge'">
+                <amexio-header-ce [color]="'white'" [background]="'rgba(0,0,0,.7)'">
+                    <amexio-label size="medium-bold" (onClick)="onItemClick(item)">
+                        {{item.company.name}}
+                    </amexio-label>
+                </amexio-header-ce>
+                <amexio-badge [absolute]="true" [top]="'6%'" [right]="'5%'" style="background-color: transparent;">
+                    <amexio-floating-button  [size]="'small'" [relative]="true" [icon]="'fa fa-heart-o'" [color]="'#FFB233'"
+                        (onClick)="onItemClick(item)">
+                    </amexio-floating-button>
+                </amexio-badge>
+
+                <amexio-body-ce>
+                    <amexio-image style="cursor: pointer;" width="250px" height="250px" path="assets/black-tshirt.jpg"
+                        (onClick)="onItemClick(item)">
+                    </amexio-image>
+                    <br>
+                    <amexio-label size="small-bold" style="cursor: pointer;" (onClick)="onItemClick(item)">
+                        {{item.category.name}} Save our Home Half Sleeve T-shirt Blue Cotton S
+                    </amexio-label>
+                </amexio-body-ce>
+                <amexio-action-ce>
+                    <amexio-row>
+                        <amexio-column size="7" fit="false">
+                            <s class="fa fa-rupee" style="font-size: large;font-weight:bold;"></s><s
+                                style="font-size: large">{{item.oldPrice}}</s> &nbsp; <i class="fa fa-rupee"
+                                style="font-size: large;font-weight:bold"></i> <b
+                                style="font-size: large;">{{item.price}}</b>
+                        </amexio-column>
+                        <amexio-column size="5" fit="false">
+                            <amexio-button amexioThemeStyle [theme-style]="'round-edge'" [label]="'Add to Cart'"
+                                [color]="'white'" [bg-color]="'#FFB233'" [tooltip]="'Add to Cart'"
+                                (onClick)="onItemClick(item)">
+                            </amexio-button>
+                        </amexio-column>
+
+
+                    </amexio-row>
+
+
+                </amexio-action-ce>
+            </amexio-card-ce>
+        </amexio-column>
+
+    </amexio-row>
+</ng-container>
+<ng-container *ngIf="showList">
+    <amexio-row>
+
+        <amexio-column size="12" fit="false" *ngFor="let item of ProductsList" style="padding: 20px">
+
+
+            <amexio-card-ce amexioThemeStyle [theme-style]="'round-edge'">
+                <amexio-header-ce [color]="'white'" [background]="'rgba(0,0,0,.7)'">
+                    <amexio-label size="medium-bold" style="cursor: pointer;">
+                        {{item.company.name}}
+                    </amexio-label>
+                </amexio-header-ce>
+
+
+                <amexio-body-ce>
+                    <amexio-row>
+                        <amexio-column size="3" fit="false">
+                            <amexio-image style="cursor: pointer;" (onClick)="onItemClick(item)" width="250px"
+                                height="250px" path="assets/black-tshirt.jpg"></amexio-image>
+
+                        </amexio-column>
+                        <amexio-column size="9" fit="false">
+
+                            <amexio-floating-button [relative]="true" [icon]="'fa fa-heart-o'" [color]="'#FFB233'">
+                            </amexio-floating-button>
+                            <br>
+                            <amexio-label size="small-bold" style="cursor: pointer;" (onClick)="onItemClick(item)">
+                                {{item.category.name}} Save our Home Half Sleeve T-shirt Blue Cotton S
+                            </amexio-label>
+                            <br>
+                            <br> <br> <br>
+                            <amexio-row>
+                                <amexio-column size="6" fit="false">
+                                    <s class="fa fa-rupee" style="font-size: large;font-weight:bold;"></s><s
+                                        style="font-size: large">{{item.oldPrice}}</s> &nbsp; <i class="fa fa-rupee"
+                                        style="font-size: large;font-weight:bold"></i> <b
+                                        style="font-size: large;">{{item.price}}</b>
+                                </amexio-column>
+                                <amexio-column size="6" fit="false">
+                                    <amexio-button style="float: right;" amexioThemeStyle [theme-style]="'round-edge'"
+                                        [label]="'Add to Cart'" [color]="'white'" [bg-color]="'#FFB233'"
+                                        (onClick)="onItemClick(item)" [tooltip]="'Add to Cart'">
+                                    </amexio-button>
+                                </amexio-column>
+                            </amexio-row>
+
+                        </amexio-column>
+                    </amexio-row>
+
+
+
+
+                </amexio-body-ce>
+                <amexio-action-ce>
+                    <amexio-row>
+
+
+
+
+                    </amexio-row>
+
+
+                </amexio-action-ce>
+            </amexio-card-ce>
+        </amexio-column>
+
+    </amexio-row>
+</ng-container>

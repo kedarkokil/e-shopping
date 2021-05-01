@@ -1,0 +1,184 @@
+<amexio-row>
+    <amexio-column size="12" fit="false" style="margin-top:20px">
+        <amexio-breadcrumb [data]="commmonService.JsonData" [data-reader]="'data'"
+            (onListItemClick)="getSelectedData($event)" (onClick)="getSelectedData($event)">
+        </amexio-breadcrumb>
+    </amexio-column>
+</amexio-row>
+
+<ng-container *ngIf="subData && subData !== null">
+    <amexio-row>
+        <amexio-column size="6" fit="false">
+            <amexio-card-ce align="center">
+
+                <amexio-body-ce [align]="'start'" style="border: 1px solid black;">
+                    <amexio-image width="220px" [c-class]="'card-img-center'" height="220px"
+                        path="assets/black-tshirt.jpg">
+                    </amexio-image>
+
+                </amexio-body-ce>
+                <amexio-action-ce [align]="'center'" [border-top]="true" style="border: 1px solid black;">
+                    <amexio-row>
+                        <amexio-column size="4" fit="false">
+                            <amexio-image width="100px" [c-class]="'card-img-center'" height="100px"
+                                path="assets/black-tshirt.jpg">
+                            </amexio-image>
+                        </amexio-column>
+                        <amexio-column size="4" fit="false">
+                            <amexio-image width="100px" [c-class]="'card-img-center'" height="100px"
+                                path="assets/black-tshirt.jpg">
+                            </amexio-image>
+                        </amexio-column>
+                        <amexio-column size="4" fit="false">
+                            <amexio-image width="100px" [c-class]="'card-img-center'" height="100px"
+                                path="assets/black-tshirt.jpg">
+                            </amexio-image>
+                        </amexio-column>
+                    </amexio-row>
+                </amexio-action-ce>
+            </amexio-card-ce>
+
+        </amexio-column>
+        <amexio-column size="4" fit="false">
+
+
+            <amexio-row>
+                <amexio-column size="12" fit="false">
+                    <amexio-chips [display-field]="'label'">
+                        <amexio-chip [icon]="'fa fa-heart-o'" [label]="'Add to Wishlist'" [color]="'white'"
+                            [font-color]="'#f1a419'">
+                        </amexio-chip>
+                    </amexio-chips>
+                </amexio-column>
+
+            </amexio-row>
+
+            <amexio-row>
+                <amexio-column size="12" fit="false">
+                    <amexio-label style="cursor: pointer; font-size: x-large;"
+                        *ngIf="subData && subData.category &&  subData.category.name">
+                        {{subData.category.name}} T-Shirt
+                    </amexio-label>
+
+                </amexio-column>
+            </amexio-row>
+
+
+            <amexio-row>
+                <amexio-column size="12" fit="false">
+
+
+                    <amexio-row>
+                        <amexio-column size="12" fit="false">
+
+
+                            <amexio-label style="cursor: pointer;">
+                                Brand:
+                            </amexio-label>
+
+                            &nbsp;
+                            <amexio-label *ngIf="subData && subData.company && subData.company.name"
+                                style="cursor: pointer;">
+                                {{subData.company.name}}
+                            </amexio-label>
+                        </amexio-column>
+
+                    </amexio-row>
+
+                    <br>
+                    <amexio-row>
+                        <amexio-column size="12" fit="false">
+                            <amexio-label style="cursor: pointer;">
+                                Product Code:
+                            </amexio-label>
+                            &nbsp;
+                            <amexio-label style="cursor: pointer;">
+                                {{subData.name}}
+                            </amexio-label>
+                        </amexio-column>
+
+                    </amexio-row>
+
+                    <br>
+                    <amexio-row>
+                        <amexio-column size="12" fit="false">
+                            <amexio-label style="cursor: pointer;">
+                                Reward Points:
+                            </amexio-label>
+
+                            &nbsp;
+                            <amexio-label style="cursor: pointer;">
+                                200
+                            </amexio-label>
+
+                        </amexio-column>
+
+                    </amexio-row>
+
+                    <br>
+                    <amexio-row>
+                        <amexio-column size="12" fit="false">
+                            <amexio-label style="cursor: pointer;">
+                                Availability:
+                            </amexio-label>
+
+                            &nbsp;
+                            <amexio-label style="cursor: pointer; color: lightgreen;">
+                                In Stock
+                            </amexio-label>
+                        </amexio-column>
+
+                    </amexio-row>
+                    <br>
+                    <amexio-row>
+                        <amexio-column size="12" fit="false">
+                            <amexio-label style="cursor: pointer;">
+                                QTY:
+                            </amexio-label>
+
+                            &nbsp;
+                                <span class="minus">-</span>
+                                <input type="text" value="1" />
+                                <span class="plus">+</span>
+                        </amexio-column>
+
+                    </amexio-row>
+
+
+                </amexio-column>
+            </amexio-row>
+
+
+            <amexio-row>
+                <amexio-column size="5" fit="false" style="padding-left: 15px;">
+                    <s class="fa fa-rupee" style="font-size: large;font-weight:bold;"></s><s
+                        style="font-size: large">{{subData.oldPrice}}</s> &nbsp; <i class="fa fa-rupee"
+                        style="font-size: large;font-weight:bold"></i>
+                    <b style="font-size: x-large;">{{subData.price}}</b>
+                </amexio-column>
+            </amexio-row>
+            <amexio-row>
+                <amexio-column size="5" fit="false" style="padding-top:20px">
+                    <amexio-button style="float: right;" amexioThemeStyle [theme-style]="'round-edge'"
+                        [label]="'Add to Cart'" [color]="'white'" [bg-color]="'#FFB233'" [tooltip]="'Add to Cart'">
+                    </amexio-button>
+                </amexio-column>
+            </amexio-row>
+        </amexio-column>
+    </amexio-row>
+    <amexio-row>
+        <amexio-column size="12" fit="false">
+            <amexio-tab-view [closable]="false">
+                <amexio-tab title="Description" [active]="true">
+                    <p>
+                        {{subData.description}}
+                    </p>
+                </amexio-tab>
+                <amexio-tab title="Reviews(0)" [disabled]=true>
+
+                </amexio-tab>
+
+            </amexio-tab-view>
+        </amexio-column>
+    </amexio-row>
+</ng-container>

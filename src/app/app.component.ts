@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonService } from './API/comman.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,39 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-shopping';
+
+  users: any;
+  topMenuData: any = [];
+
+  constructor( public commonService: CommonService,  public router:Router) {
+    this.topMenuData = [
+     
+      {
+        "text": "Men",
+        "link": "update"
+      },
+      {
+        "text": "Women",
+        "link": "update"
+      },
+      {
+        "text": "Kids",
+        "link": "update"
+      }
+    ]
+   }
+
+  ngOnInit() {
+    this.router.navigate(['']);
+  }
+
+  onHomeClick() {
+    this.router.navigate(['/app-home-page']);
+  }
+
+  onLogoClick() {
+    this.commonService.showCarosual = !this.commonService.showCarosual;
+  }
+
+  
 }
