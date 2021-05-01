@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from './API/comman.service';
 
+ // ****** Created By Kedar Kokil 01-05-2021 *******
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,16 +19,13 @@ export class AppComponent {
     this.topMenuData = [
      
       {
-        "text": "Men",
-        "link": "update"
+        "text": "Men"
       },
       {
-        "text": "Women",
-        "link": "update"
+        "text": "Women"
       },
       {
-        "text": "Kids",
-        "link": "update"
+        "text": "Kids"
       }
     ]
    }
@@ -43,5 +42,4 @@ export class AppComponent {
     this.commonService.showCarosual = !this.commonService.showCarosual;
   }
 
-  
 }

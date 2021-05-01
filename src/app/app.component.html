@@ -1,14 +1,14 @@
 
 <amexio-nav [title]="'LOGO'" (onNavTitleClick)="onLogoClick()" style="font-size: large;" [enable-side-nav-position]="true">
-   <amexio-nav-item position-left style="padding-left: 30%;" [title]="'All'" [type]="'button'">
+   <amexio-nav-item position-left style="padding-left: 30%;" [title]="'All'" [type]="'button'" (onNavItemClick)="onHomeClick()">
    </amexio-nav-item>
-   <amexio-nav-item position-left *ngFor="let menus of topMenuData" [title]="menus.text" [type]="'button'"  (onNavItemClick)="onHomeClick('')"
+   <amexio-nav-item position-left *ngFor="let menus of topMenuData" [title]="menus.text" [type]="'button'"  (onNavItemClick)="onHomeClick()"
       class="navbar">
    </amexio-nav-item>
-   <amexio-nav-item position-right [icon]="'fa fa-shopping-cart fa-fw fa-lg'" [type]="'button'" (onNavItemClick)="onHomeClick($event)"
+   <amexio-nav-item position-right [icon]="'fa fa-shopping-cart fa-fw fa-lg'" [type]="'button'" (onNavItemClick)="onHomeClick()"
       style="cursor: pointer;">
    </amexio-nav-item>
-   <amexio-nav-item position-right [icon]="'fa fa-user-circle-o fa-fw fa-lg'" [type]="'button'" (onNavItemClick)="onHomeClick($event)"
+   <amexio-nav-item position-right [icon]="'fa fa-user-circle-o fa-fw fa-lg'" [type]="'button'" (onNavItemClick)="onHomeClick()"
       style="cursor: pointer;">
    </amexio-nav-item>
 </amexio-nav>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../API/comman.service';
 
+ // ****** Created By Kedar Kokil 01-05-2021 *******
+
+
 @Component({
   selector: 'app-order-page',
   templateUrl: './order-page.component.html',
@@ -20,11 +23,5 @@ export class OrderPageComponent implements OnInit {
         }
       });
     }
-
-   
-  }
-
-  getSelectedData() {
-
   }
 }
