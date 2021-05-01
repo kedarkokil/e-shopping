@@ -10,7 +10,7 @@ const API_URL = 'http://lmsuat.calibehr.com';
 })
 export class CommonService {
 
-  showCarosual = false;
+  showCarosual = true;
 
   JsonData: any = [];
 
